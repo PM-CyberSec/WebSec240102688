@@ -1,0 +1,152 @@
+body {
+    background:
+        radial-gradient(circle at top left, rgba(0, 255, 255, 0.12), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(138, 43, 226, 0.14), transparent 25%),
+        linear-gradient(135deg, #0a0f1f, #111827, #0f172a);
+    color: #e5f4ff;
+    min-height: 100vh;
+}
+
+/* Animated gradient background */
+/* body {
+    background: linear-gradient(-45deg, #0a0f1f, #111827, #0f172a, #1e293b);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+
+/* animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+} */
+
+/* Glass card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+}
+
+/* Buttons */
+.btn-future {
+    background: linear-gradient(90deg, #00e5ff, #7c3aed);
+    color: rgb(23, 60, 82);
+    border-radius: 12px;
+}
+
+/* Inputs */
+.form-control {
+    background: rgba(255,255,255,0.08);
+    color: rgb(255, 255, 255);
+}
+
+.form-label {
+    color: #d6d7dd !important;
+    text-shadow: 0 0 6px rgba(139, 233, 253, 0.4);
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+/* ===== NAVBAR FUTURISTIC ===== */
+.navbar-future {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+/* brand */
+.navbar-future .navbar-brand {
+    color: #8be9fd !important;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* links */
+.navbar-future .nav-link {
+    color: #e5f4ff !important;
+    transition: 0.3s;
+}
+
+/* hover effect */
+.navbar-future .nav-link:hover {
+    color: #00e5ff !important;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+}
+
+/* active link */
+.navbar-future .nav-link.active {
+    color: #7c3aed !important;
+}
+
+/* user badge */
+.navbar-future .badge-future {
+    background: rgba(0, 229, 255, 0.15);
+    color: #8be9fd;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+/* buttons inside navbar */
+.navbar-future .btn {
+    border-radius: 12px;
+}
+
+/* ===== SEARCH BAR ===== */
+.search-input {
+    height: 42px;            
+    min-width: 420px;       
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(0, 229, 255, 0.25) !important;
+    color: #ffffff !important;
+}
+
+.search-input:focus {
+    border-color: #00e5ff !important;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+/* ===== SEARCH BUTTON ===== */
+.search-btn {
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 10px;
+    border: none;
+
+    background: linear-gradient(90deg, #215d64, #170c2b);
+    color: white;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+/* hover glow */
+.search-btn:hover {
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.6),
+                0 0 25px rgba(124, 58, 237, 0.4);
+    transform: translateY(-1px);
+}
+
+/* click effect */
+.search-btn:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
