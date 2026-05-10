@@ -10,15 +10,23 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('welcome');
 });
-Route::get('/even', function () {
-    return view('even');
-});
-Route::get('/prime', function () {
-    return view('prime');
-});
-Route::get('/multable/{j?}', function ($j = 5) {
-    $j = (int) $j;
-    return view('multable', compact('j'));
+Route::prefix('sandbox')->group(function () {
+    Route::get('/', function () {
+        return view('Sandbox');
+    })->name('sandbox');
+
+    Route::get('/even', function () {
+        return view('even');
+    })->name('sandbox.even');
+
+    Route::get('/prime', function () {
+        return view('prime');
+    })->name('sandbox.prime');
+
+    Route::get('/multiple/{j?}', function ($j = 5) {
+        $j = (int) $j;
+        return view('multiple', compact('j'));
+    })->name('sandbox.multiple');
 });
 
 Route::get('register', [UsersController::class, 'register'])->name('register');

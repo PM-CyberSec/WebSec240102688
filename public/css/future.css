@@ -53,8 +53,28 @@ body {
 /* Buttons */
 .btn-future {
     background: linear-gradient(90deg, #0c8795, #140035);
-    color: rgb(140035, 140035, 255);
+    color: white !important;
+    border: none !important;
     border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-future:hover {
+    background: linear-gradient(90deg, #00e5ff, #0c8795);
+    color: #140035 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4);
+}
+
+.btn, .btn-sm, .btn-lg {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none;
+}
+
+.btn:focus, .btn:active {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5) !important;
 }
 
 /* Inputs */
@@ -238,6 +258,11 @@ body {
     transition: all 0.25s ease;
 }
 
+table, .table {
+    --bs-table-bg: #0d101e82 !important;
+    background-color: #0d101e82 !important;
+}
+
 /* Hover glow */
 .products-page .product-detail-table tr:hover th,
 .products-page .product-detail-table tr:hover td {
@@ -304,7 +329,7 @@ body {
     min-height: 42px;
 }
 
-.ts-wrapper.multi .ts-control > div {
+.ts-wrapper.multi .ts-control>div {
     background: #00e5ff !important;
     color: #1a1a2e !important;
     border-radius: 4px !important;
@@ -317,10 +342,11 @@ body {
     background: #1a1a2e !important;
     border: 1px solid rgba(0, 229, 255, 0.3) !important;
     color: white !important;
-    z-index: var(--z-dropdown) !important; /* Ensure it renders on top */
+    z-index: var(--z-dropdown) !important;
+    /* Ensure it renders on top */
     border-radius: 10px;
     margin-top: 5px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .ts-dropdown .active {

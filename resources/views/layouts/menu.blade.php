@@ -5,16 +5,10 @@
         <a class="nav-link" href="/home">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/even">Even Numbers</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/prime">Prime Numbers</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/multable">Multiplication Table</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="{{ route('products.index') }}">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('sandbox') }}">Sandbox</a>
       </li>
       @auth
         <li class="nav-item">
