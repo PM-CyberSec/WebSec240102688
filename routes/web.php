@@ -29,6 +29,8 @@ Route::post('login', [UsersController::class, 'doLogin'])->name('do_login');
 
 Route::get('logout', [UsersController::class, 'doLogout'])->name('do_logout');
 
-Route::get('/Products/create', [ProductsController::class, 'create'])->name('products.create');
-Route::post('/Products', [ProductsController::class, 'store'])->name('products.store');
-Route::get('/Products', [ProductsController::class, 'list'])->name('products.index');
+Route::middleware('auth')->group(function () {
+
+    Route::resource('products', ProductsController::class);
+
+});

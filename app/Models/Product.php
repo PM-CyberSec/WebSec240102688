@@ -8,6 +8,7 @@ class Product extends Model
 {
     
     protected $fillable = [
+        'category_id',
         'code',
         'name',
         'model',
@@ -16,4 +17,15 @@ class Product extends Model
         'stock',
         'description'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId(column:'category_id')->references(column:'id')->on(table:'categories');
             $table->string('code')->unique(); 
             $table->string('name');
             $table->string('model')->nullable();
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->enum('stock', ['available', 'empty'])->default('available');
             $table->text('description')->nullable();
             $table->timestamps();  
+            #$table->foreignId(column:'category_id')->constraint('id');
         });
     }
 

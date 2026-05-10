@@ -1,3 +1,10 @@
+:root {
+    --z-dropdown: 2000;
+    --z-modal: 3000;
+    --z-fixed: 1030;
+    --z-backdrop: 2500;
+}
+
 body.has-fixed-navbar {
     padding-top: 3.5rem;
 }
@@ -20,10 +27,20 @@ body {
 
 /* animation */
 @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-} */
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+*/
 
 /* Glass card */
 .glass-card {
@@ -35,20 +52,30 @@ body {
 
 /* Buttons */
 .btn-future {
-    background: linear-gradient(90deg, #00e5ff, #7c3aed);
-    color: rgb(23, 60, 82);
+    background: linear-gradient(90deg, #0c8795, #140035);
+    color: rgb(140035, 140035, 255);
     border-radius: 12px;
 }
 
 /* Inputs */
-.form-control {
-    background: rgba(255,255,255,0.08);
-    color: rgb(255, 255, 255);
+.form-control,
+.form-select {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: #00e5ff !important;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3) !important;
+    color: white !important;
 }
 
 .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Pure white or slightly transparent white looks best */
-    opacity: 1; /* Firefox requires this to display the full color */
+    color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .form-label {
@@ -59,7 +86,7 @@ body {
 .card {
     background: rgba(255, 255, 255, 0.06) !important;
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
 }
 
@@ -118,13 +145,13 @@ body {
 
 /* ===== SEARCH BAR ===== */
 .search-input {
-    height: 42px;            
-    min-width: 420px;       
+    height: 42px;
+    min-width: 420px;
     padding: 8px 14px;
     border-radius: 10px;
     font-size: 14px;
 
-    background: rgba(255,255,255,0.08) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
     border: 1px solid rgba(0, 229, 255, 0.25) !important;
     color: #ffffff !important;
 }
@@ -151,7 +178,7 @@ body {
 /* hover glow */
 .search-btn:hover {
     box-shadow: 0 0 15px rgba(0, 229, 255, 0.6),
-                0 0 25px rgba(124, 58, 237, 0.4);
+        0 0 25px rgba(124, 58, 237, 0.4);
     transform: translateY(-1px);
 }
 
@@ -183,4 +210,141 @@ body {
 .products-page .product-detail-table th {
     white-space: nowrap;
     width: 22%;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Glassy table cells */
+.products-page .product-detail-table th,
+.products-page .product-detail-table td {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.05),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+
+    border-radius: 0px;
+
+    padding: 12px 14px;
+
+    transition: all 0.25s ease;
+}
+
+/* Hover glow */
+.products-page .product-detail-table tr:hover th,
+.products-page .product-detail-table tr:hover td {
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(0, 229, 255, 0.18) !important;
+
+    box-shadow:
+        0 0 12px rgba(0, 229, 255, 0.08),
+        0 0 24px rgba(124, 58, 237, 0.06);
+}
+
+.product-detail-table {
+    border-collapse: separate !important;
+    border-spacing: 0 5px;
+}
+
+.text-cyan {
+    color: #00e5ff !important;
+}
+
+.text-purple {
+    color: #7c3aed !important;
+}
+
+.text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+/* Product Info Container */
+.info-container {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    font-size: 0.95rem;
+}
+
+.info-container .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.info-container code {
+    background: rgba(0, 229, 255, 0.1);
+    color: #00e5ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.text-light-50 {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* TomSelect customization for future theme */
+.ts-control,
+.dropdown,
+.select,
+.custom-select,
+.product-dropdown,
+.tags-dropdown {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: white !important;
+    border-radius: 10px !important;
+    min-height: 42px;
+}
+
+.ts-wrapper.multi .ts-control > div {
+    background: #00e5ff !important;
+    color: #1a1a2e !important;
+    border-radius: 4px !important;
+    font-weight: bold;
+    padding: 2px 8px;
+    margin: 2px;
+}
+
+.ts-dropdown {
+    background: #1a1a2e !important;
+    border: 1px solid rgba(0, 229, 255, 0.3) !important;
+    color: white !important;
+    z-index: var(--z-dropdown) !important; /* Ensure it renders on top */
+    border-radius: 10px;
+    margin-top: 5px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.ts-dropdown .active {
+    background: rgba(0, 229, 255, 0.2) !important;
+    color: white !important;
+}
+
+.ts-dropdown .option {
+    padding: 8px 12px;
+}
+
+.ts-control .item {
+    background: #00e5ff !important;
+    color: #1a1a2e !important;
+    border-radius: 4px !important;
+    font-weight: bold;
+}
+
+.ts-wrapper .ts-control input {
+    color: white !important;
+}
+
+/* Edit Product Modal Background */
+#editProductModal .modal-content {
+    background: #000000c7 !important;
+    backdrop-filter: blur(20px);
 }

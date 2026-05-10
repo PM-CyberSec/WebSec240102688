@@ -47,7 +47,27 @@
                     <label class="form-label">Description</label>
                     <textarea name="description" class="form-control" rows="3">{{ old('description') }}</textarea>
                 </div>
-
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+                    <select name="category_id" class="form-select" required>
+                        <option value="">Select a category</option>
+                            @foreach ($categories as $category)
+                            <option value="{{ $category->id  }}">
+                                {{ $category->name }}
+                            </option>
+                            @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tags</label>
+                    <select name="tags[]" id="tags-select" class="form-select" multiple placeholder="Select tags...">
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}" {{ in_array($tag->id, old('tags', [])) ? 'selected' : '' }}>
+                                {{ $tag->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="d-flex gap-2">
                     <button type="submit" class="btn btn-future">Save product</button>
                     <a href="{{ route('products.index') }}" class="btn btn-outline-light">Cancel</a>
