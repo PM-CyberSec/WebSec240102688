@@ -2,17 +2,17 @@
   <div class="container-fluid">
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/home">Home</a>
+        <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="/home">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('products.index') }}">Products</a>
+        <a class="nav-link {{ Request::routeIs('products.index') ? 'active' : '' }}" href="{{ route('products.index') }}">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('sandbox') }}">Sandbox</a>
+        <a class="nav-link {{ Request::routeIs('sandbox*') ? 'active' : '' }}" href="{{ route('sandbox') }}">Sandbox</a>
       </li>
       @auth
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('products.create') }}">Add product</a>
+          <a class="nav-link {{ Request::routeIs('products.create') ? 'active' : '' }}" href="{{ route('products.create') }}">Add product</a>
         </li>
       @endauth
     </ul>

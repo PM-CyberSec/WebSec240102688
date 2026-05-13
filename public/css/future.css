@@ -148,7 +148,43 @@ body {
 
 /* active link */
 .navbar-future .nav-link.active {
-    color: #7c3aed !important;
+    color: #00e5ff !important;
+    position: relative;
+}
+
+/* Flashlight glow under active link */
+.navbar-future .nav-link.active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: #38bdf8;
+    border-radius: 50%;
+    box-shadow:
+        0 0 6px rgba(56, 189, 248, 0.6),
+        0 0 12px rgba(56, 189, 248, 0.4),
+        0 0 20px rgba(56, 189, 248, 0.2);
+    animation: flashlightPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes flashlightPulse {
+    0%, 100% {
+        opacity: 0.6;
+        box-shadow:
+            0 0 6px rgba(56, 189, 248, 0.6),
+            0 0 12px rgba(56, 189, 248, 0.4),
+            0 0 20px rgba(56, 189, 248, 0.2);
+    }
+    50% {
+        opacity: 1;
+        box-shadow:
+            0 0 10px rgba(56, 189, 248, 0.8),
+            0 0 20px rgba(56, 189, 248, 0.6),
+            0 0 30px rgba(56, 189, 248, 0.3);
+    }
 }
 
 /* user badge */
@@ -206,6 +242,65 @@ body {
 .search-btn:active {
     transform: scale(0.96);
     box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
+
+/* Purple flashing dot - bottom right corner */
+.purple-dot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    background: #a855f7;
+    border-radius: 50%;
+    z-index: 9999;
+    animation: purplePulse 1.2s ease-in-out infinite;
+    box-shadow:
+        0 0 8px rgba(168, 85, 247, 0.7),
+        0 0 16px rgba(168, 85, 247, 0.4),
+        0 0 30px rgba(168, 85, 247, 0.2);
+    cursor: pointer;
+}
+
+@keyframes purplePulse {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(0.8);
+        box-shadow:
+            0 0 8px rgba(168, 85, 247, 0.5),
+            0 0 16px rgba(168, 85, 247, 0.3),
+            0 0 30px rgba(168, 85, 247, 0.15);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        box-shadow:
+            0 0 14px rgba(168, 85, 247, 0.9),
+            0 0 28px rgba(168, 85, 247, 0.6),
+            0 0 45px rgba(168, 85, 247, 0.3);
+    }
+}
+
+/* Typing text effect */
+.typing-container {
+    position: fixed;
+    bottom: 22px;
+    right: 45px;
+    z-index: 9998;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: #c4b5fd;
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+    min-height: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #a855f7;
+    animation: typingBlink 0.8s step-end infinite;
+    max-width: 320px;
+}
+
+@keyframes typingBlink {
+    50% { border-color: transparent; }
 }
 
 /* Products page */

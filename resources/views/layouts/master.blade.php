@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="{{ asset('css/future.css') }}">
 </head>
 <body class="has-fixed-navbar">
-    @include('layouts.menu')
+     @include('layouts.menu')
 
-    @yield('content')
+     @yield('content')
+
+<div class="purple-dot" title="Cyber Security"></div>
+<div class="typing-container" id="typing-text"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
@@ -41,10 +44,46 @@ document.addEventListener("DOMContentLoaded", function() {
                 create: el.multiple ? true : false,
                 plugins: el.multiple ? ['remove_button'] : [],
                 persist: false,
-                dropdownParent: 'body', // Portals dropdown to body to avoid stacking context issues
+                dropdownParent: 'body',
             });
         }
     });
+
+    // Typing effect for cyber phrase
+    const phrases = [
+        "Attackers only need to be right once.",
+        "Defenders need to be right every time.",
+        "Detection is half the battle;",
+        "containment and recovery are the other half.",
+        "You can't defend. You can only delay.",
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingEl = document.getElementById('typing-text');
+
+    function typeEffect() {
+        const currentPhrase = phrases[phraseIndex];
+        if (!isDeleting) {
+            typingEl.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 2000);
+                return;
+            }
+        } else {
+            typingEl.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+        }
+        const speed = isDeleting ? 30 : 60;
+        setTimeout(typeEffect, speed + Math.random() * 30);
+    }
+    if (typingEl) typeEffect();
 });
 </script>
 </body>
