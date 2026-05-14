@@ -8,10 +8,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, var(--dark-charcoal), var(--dark-secondary));
+        background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
         padding: 40px 20px;
         position: relative;
         overflow: hidden;
+    }
+
+    [data-theme="dark"] .auth-page {
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
     }
 
     .auth-page::before {
@@ -21,7 +25,7 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
         animation: rotate 20s linear infinite;
     }
 
@@ -31,47 +35,50 @@
     }
 
     .auth-card {
-        background: white;
+        background: var(--bg-secondary);
         border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--border-default);
+        box-shadow: var(--shadow-xl);
         overflow: hidden;
         position: relative;
         z-index: 2;
-        max-width: 480px;
+        max-width: 460px;
         width: 100%;
     }
 
     .auth-header {
-        background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
-        padding: 40px 40px 60px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        padding: 40px 40px 56px;
         text-align: center;
         margin-bottom: -40px;
     }
 
     .auth-logo {
-        width: 80px;
-        height: 80px;
+        width: 72px;
+        height: 72px;
         background: white;
         border-radius: var(--radius-lg);
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 20px;
-        font-size: 36px;
-        color: var(--primary-orange);
+        margin: 0 auto 16px;
+        font-size: 32px;
+        color: var(--primary);
+        box-shadow: var(--shadow-lg);
     }
 
     .auth-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 28px;
+        font-family: var(--font-display);
+        font-size: 26px;
         font-weight: 700;
         color: white;
         margin: 0;
     }
 
     .auth-subtitle {
-        color: rgba(255,255,255,0.8);
-        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.85);
+        margin-top: 6px;
+        font-size: var(--text-sm);
     }
 
     .auth-body {
@@ -85,23 +92,34 @@
     .form-label-custom {
         display: block;
         font-weight: 600;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
         margin-bottom: 8px;
+        font-size: var(--text-sm);
     }
 
     .form-input-custom {
         width: 100%;
-        padding: 16px 20px;
-        border: 2px solid var(--light-gray);
+        padding: 14px 18px;
+        border: 2px solid var(--border-default);
         border-radius: var(--radius-md);
-        font-size: 16px;
-        transition: var(--transition-fast);
+        font-size: var(--text-sm);
+        transition: all var(--transition-fast);
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+    }
+
+    .form-input-custom::placeholder {
+        color: var(--text-muted);
     }
 
     .form-input-custom:focus {
-        border-color: var(--primary-orange);
-        box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
         outline: none;
+    }
+
+    .form-input-custom.is-invalid {
+        border-color: var(--danger);
     }
 
     .remember-row {
@@ -114,26 +132,33 @@
     .remember-check {
         display: flex;
         align-items: center;
-        gap: 8px;
-        color: var(--muted-gray);
+        gap: 10px;
+        color: var(--text-secondary);
+        cursor: pointer;
     }
 
-    .remember-check input {
+    .remember-check input[type="checkbox"] {
         width: 18px;
         height: 18px;
-        accent-color: var(--primary-orange);
+        accent-color: var(--primary);
+        cursor: pointer;
     }
 
     .forgot-link {
-        color: var(--primary-orange);
+        color: var(--primary);
         font-weight: 600;
+        font-size: var(--text-sm);
+    }
+
+    .forgot-link:hover {
+        color: var(--primary-dark);
     }
 
     .auth-btn {
         width: 100%;
-        padding: 18px;
-        font-size: 16px;
-        font-weight: 700;
+        padding: 16px;
+        font-size: var(--text-base);
+        font-weight: 600;
         border-radius: var(--radius-md);
     }
 
@@ -149,21 +174,22 @@
         content: '';
         flex: 1;
         height: 1px;
-        background: var(--light-gray);
+        background: var(--border-default);
     }
 
     .auth-divider span {
-        color: var(--muted-gray);
-        font-size: 14px;
+        color: var(--text-muted);
+        font-size: var(--text-sm);
     }
 
     .auth-footer {
         text-align: center;
-        color: var(--muted-gray);
+        color: var(--text-secondary);
+        font-size: var(--text-sm);
     }
 
     .auth-footer a {
-        color: var(--primary-orange);
+        color: var(--primary);
         font-weight: 600;
     }
 
@@ -175,20 +201,60 @@
     .social-btn {
         flex: 1;
         padding: 14px;
-        border: 2px solid var(--light-gray);
+        border: 2px solid var(--border-default);
         border-radius: var(--radius-md);
-        background: white;
+        background: var(--bg-secondary);
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 20px;
         cursor: pointer;
-        transition: var(--transition-fast);
+        transition: all var(--transition-fast);
     }
 
     .social-btn:hover {
-        border-color: var(--primary-orange);
-        background: var(--off-white);
+        border-color: var(--primary);
+        background: var(--surface-hover);
+    }
+
+    .alert-custom {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        margin-bottom: var(--space-5);
+        font-size: var(--text-sm);
+    }
+
+    .alert-custom.success {
+        background: var(--success-light);
+        color: var(--success);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    [data-theme="dark"] .alert-custom.success {
+        background: var(--success-light);
+    }
+
+    @media (max-width: 576px) {
+        .auth-card {
+            max-width: 100%;
+        }
+
+        .auth-header {
+            padding: 32px 24px 48px;
+        }
+
+        .auth-body {
+            padding: 24px;
+        }
+
+        .auth-logo {
+            width: 60px;
+            height: 60px;
+            font-size: 26px;
+        }
     }
 </style>
 @endsection
@@ -198,16 +264,16 @@
     <div class="auth-card">
         <div class="auth-header">
             <div class="auth-logo">
-                <i class="bi bi-shop"></i>
+                <i class="bi bi-lightning-charge-fill"></i>
             </div>
             <h2 class="auth-title">Welcome Back</h2>
-            <p class="auth-subtitle">Sign in to continue to Foodie</p>
+            <p class="auth-subtitle">Sign in to continue to Quickbite</p>
         </div>
 
         <div class="auth-body">
             @if(session('status'))
-            <div class="alert alert-success border-0 rounded-3 mb-4" style="background: rgba(46, 204, 113, 0.1);">
-                <i class="bi bi-check-circle me-2"></i>{{ session('status') }}
+            <div class="alert-custom success">
+                <i class="bi bi-check-circle-fill"></i>{{ session('status') }}
             </div>
             @endif
 
@@ -220,7 +286,7 @@
                            class="form-input-custom @error('email') is-invalid @enderror"
                            required autocomplete="email" autofocus placeholder="Enter your email">
                     @error('email')
-                    <div class="text-danger small mt-2">{{ $message }}</div>
+                    <div class="text-danger small mt-2" style="color: var(--danger);">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -230,7 +296,7 @@
                            class="form-input-custom @error('password') is-invalid @enderror"
                            required autocomplete="current-password" placeholder="Enter your password">
                     @error('password')
-                    <div class="text-danger small mt-2">{{ $message }}</div>
+                    <div class="text-danger small mt-2" style="color: var(--danger);">{{ $message }}</div>
                     @enderror
                 </div>
 

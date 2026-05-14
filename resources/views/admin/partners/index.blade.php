@@ -48,17 +48,17 @@
 
     .stat-icon.success {
         background: rgba(40, 167, 69, 0.1);
-        color: #28a745;
+        color: var(--success);
     }
 
     .stat-icon.warning {
         background: rgba(255, 193, 7, 0.1);
-        color: #ffc107;
+        color: var(--warning);
     }
 
     .stat-icon.danger {
         background: rgba(220, 53, 69, 0.1);
-        color: #dc3545;
+        color: var(--danger);
     }
 
     .partner-table {
@@ -72,13 +72,13 @@
         background: var(--off-white);
         font-weight: 600;
         padding: 16px;
-        border-bottom: 2px solid #e9ecef;
+        border-bottom: 2px solid var(--border-default);
     }
 
     .partner-table td {
         padding: 16px;
         vertical-align: middle;
-        border-bottom: 1px solid #e9ecef;
+        border-bottom: 1px solid var(--border-subtle);
     }
 
     .status-badge {
@@ -90,17 +90,17 @@
 
     .status-active {
         background: rgba(40, 167, 69, 0.1);
-        color: #28a745;
+        color: var(--success);
     }
 
     .status-pending {
         background: rgba(255, 193, 7, 0.1);
-        color: #ffc107;
+        color: var(--warning);
     }
 
     .status-suspended {
         background: rgba(220, 53, 69, 0.1);
-        color: #dc3545;
+        color: var(--danger);
     }
 
     .partner-info {

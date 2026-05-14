@@ -141,7 +141,7 @@
 
     .status-confirmed {
         background: rgba(52, 152, 219, 0.15);
-        color: #3498DB;
+        color: var(--info);
     }
 
     .status-preparing {
@@ -151,7 +151,7 @@
 
     .status-on_the_way {
         background: rgba(155, 89, 182, 0.15);
-        color: #9B59B6;
+        color: var(--secondary);
     }
 
     .status-delivered {

@@ -8,28 +8,62 @@
 @section('styles')
 <style>
     .admin-header {
-        background: linear-gradient(135deg, var(--dark-charcoal), var(--dark-secondary));
-        padding: 40px 0;
-        margin-bottom: 32px;
+        background: linear-gradient(135deg, var(--primary) 0%, #1D4ED8 100%);
+        padding: 48px 0;
+        margin-bottom: var(--space-8);
+        position: relative;
+        overflow: hidden;
     }
+
+    .admin-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+    }
+
     .admin-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 36px;
+        font-family: var(--font-display);
+        font-size: var(--text-3xl);
         font-weight: 700;
         color: white;
+        position: relative;
     }
+
+    .admin-header p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: var(--text-base);
+        position: relative;
+        margin-top: var(--space-2);
+    }
+
+    .admin-header .badge {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: var(--text-sm);
+        padding: var(--space-2) var(--space-4);
+    }
+
     .stat-card {
-        background: white;
+        background: var(--bg-secondary);
         border-radius: var(--radius-lg);
-        padding: 24px;
+        border: 1px solid var(--border-subtle);
+        padding: var(--space-6);
         box-shadow: var(--shadow-sm);
         height: 100%;
-        transition: var(--transition-fast);
+        transition: all var(--transition-base);
     }
+
     .stat-card:hover {
         transform: translateY(-4px);
-        box-shadow: var(--shadow-md);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--border-default);
     }
+
     .stat-icon {
         width: 52px;
         height: 52px;
@@ -38,99 +72,218 @@
         align-items: center;
         justify-content: center;
         font-size: 22px;
-        margin-bottom: 16px;
+        margin-bottom: var(--space-4);
     }
+
     .stat-value {
-        font-size: 28px;
+        font-size: var(--text-3xl);
         font-weight: 700;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
         line-height: 1;
     }
+
     .stat-label {
-        font-size: 13px;
-        color: var(--muted-gray);
-        margin-top: 4px;
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        font-weight: 500;
+        margin-top: var(--space-2);
     }
+
     .stat-trend {
-        font-size: 12px;
+        font-size: var(--text-xs);
         font-weight: 600;
-        margin-top: 8px;
+        margin-top: var(--space-2);
     }
+
     .chart-container {
-        background: white;
+        background: var(--bg-secondary);
         border-radius: var(--radius-lg);
-        padding: 24px;
+        border: 1px solid var(--border-subtle);
+        padding: var(--space-6);
         box-shadow: var(--shadow-sm);
         height: 100%;
     }
-    .chart-container h6 {
-        font-weight: 700;
-        margin-bottom: 16px;
-        color: var(--dark-charcoal);
+
+    .chart-title {
+        font-size: var(--text-lg);
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--space-5);
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
     }
+
     .chart-box {
         position: relative;
-        height: 250px;
+        height: 280px;
     }
+
     .control-tower-card {
-        background: white;
+        background: var(--bg-secondary);
         border-radius: var(--radius-lg);
+        border: 1px solid var(--border-subtle);
         box-shadow: var(--shadow-sm);
         overflow: hidden;
     }
-    .table-card-admin {
-        background: white;
-        border-radius: var(--radius-lg);
-        overflow: hidden;
-        box-shadow: var(--shadow-sm);
+
+    .card-header-custom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-5) var(--space-6);
+        border-bottom: 1px solid var(--border-subtle);
     }
-    .table-header-admin {
-        padding: 20px 24px;
-        border-bottom: 1px solid var(--light-gray);
-    }
-    .table-header-admin h4 {
-        margin: 0;
-        font-weight: 700;
-    }
-    .table th {
-        background: var(--off-white);
-        padding: 14px 16px;
+
+    .card-header-title {
+        font-size: var(--text-lg);
         font-weight: 600;
-        font-size: 12px;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .table-card-admin {
+        background: var(--bg-secondary);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-subtle);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .table-header-admin {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-5) var(--space-6);
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .table-header-title {
+        font-size: var(--text-lg);
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .table th {
+        background: var(--bg-tertiary);
+        padding: var(--space-4);
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: var(--text-xs);
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        border-bottom: 2px solid var(--border-default);
     }
+
     .table td {
-        padding: 14px 16px;
+        padding: var(--space-4);
         vertical-align: middle;
+        border-bottom: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
     }
+
+    .table tbody tr:hover {
+        background: var(--surface-hover);
+    }
+
+    .table .badge {
+        font-size: var(--text-xs);
+    }
+
     .dispatch-btn {
-        background: var(--primary-orange);
+        background: var(--primary);
         color: white;
         border: none;
-        padding: 6px 14px;
+        padding: var(--space-2) var(--space-4);
         border-radius: var(--radius-md);
         font-weight: 600;
-        font-size: 13px;
+        font-size: var(--text-sm);
         cursor: pointer;
-        transition: var(--transition-fast);
+        transition: all var(--transition-fast);
     }
+
     .dispatch-btn:hover {
-        background: var(--primary-orange-dark);
+        background: var(--primary-dark);
+        color: white;
     }
+
     .status-dot {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         display: inline-block;
-        margin-right: 6px;
+        margin-right: var(--space-2);
     }
-    .status-dot.placed { background: #3498DB; }
-    .status-dot.confirmed { background: #F39C12; }
-    .status-dot.preparing { background: #9B59B6; }
-    .status-dot.on_the_way { background: #2ECC71; }
-    .status-dot.delivered { background: #1ABC9C; }
-    .status-dot.cancelled { background: #E74C3C; }
+
+    .status-dot.placed { background: var(--info); }
+    .status-dot.confirmed { background: var(--warning); }
+    .status-dot.preparing { background: var(--secondary); }
+    .status-dot.on_the_way { background: var(--success); }
+    .status-dot.delivered { background: #10B981; }
+    .status-dot.cancelled { background: var(--danger); }
+
+    .quick-link-btn {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        width: 100%;
+        padding: var(--space-4);
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: var(--text-sm);
+        transition: all var(--transition-fast);
+        cursor: pointer;
+    }
+
+    .quick-link-btn:hover {
+        background: var(--surface-hover);
+        border-color: var(--border-default);
+        color: var(--text-primary);
+    }
+
+    .quick-link-btn i {
+        font-size: 18px;
+        color: var(--primary);
+    }
+
+    .status-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-3) 0;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .status-row:last-child {
+        border-bottom: none;
+    }
+
+    .status-row-label {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        color: var(--text-secondary);
+        font-size: var(--text-sm);
+    }
+
+    .status-row-value {
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    @media (max-width: 991px) {
+        .admin-header {
+            padding: 32px 0;
+        }
+
+        .admin-title {
+            font-size: var(--text-2xl);
+        }
+    }
 </style>
 @endsection
 
@@ -140,11 +293,11 @@
         <div class="d-flex justify-content-between align-items-center">
             <div>
                 <h1 class="admin-title">Admin Dashboard</h1>
-                <p class="text-white-50 mt-2">Platform overview and insights</p>
+                <p class="mb-0">Platform overview and insights</p>
             </div>
             <div class="text-end">
-                <span class="badge bg-success px-3 py-2">
-                    <i class="bi bi-circle-fill me-1"></i> {{ now()->format('M d, Y') }}
+                <span class="badge">
+                    <i class="bi bi-calendar3 me-2"></i>{{ now()->format('M d, Y') }}
                 </span>
             </div>
         </div>
@@ -152,82 +305,82 @@
 </section>
 
 <div class="container-fluid-custom mb-4">
-    <div class="row g-3">
-        <div class="col-md-3">
+    <div class="row g-4">
+        <div class="col-md-6 col-xl-3">
             <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(52, 152, 219, 0.1); color: #3498DB;">
+                <div class="stat-icon" style="background: rgba(59, 130, 246, 0.12); color: var(--primary);">
                     <i class="bi bi-people"></i>
                 </div>
                 <div class="stat-value">{{ $stats['customers'] }}</div>
                 <div class="stat-label">Total Customers</div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-xl-3">
             <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(46, 204, 113, 0.1); color: #2ECC71;">
+                <div class="stat-icon" style="background: var(--success-light); color: var(--success);">
                     <i class="bi bi-shop"></i>
                 </div>
                 <div class="stat-value">{{ $stats['restaurants'] }}</div>
                 <div class="stat-label">Restaurants</div>
-                <div class="stat-trend">
-                    <span class="text-warning">{{ $pendingRestaurants->count() }} pending</span>
+                <div class="stat-trend text-warning">
+                    {{ $pendingRestaurants->count() }} pending
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-xl-3">
             <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(243, 156, 18, 0.1); color: #F39C12;">
+                <div class="stat-icon" style="background: var(--warning-light); color: var(--warning);">
                     <i class="bi bi-motorcycle"></i>
                 </div>
                 <div class="stat-value">{{ $stats['riders'] }}</div>
                 <div class="stat-label">Riders</div>
-                <div class="stat-trend">
-                    <span class="text-success">{{ $riders->where('status', 'available')->count() }} available</span>
+                <div class="stat-trend text-success">
+                    {{ $riders->where('status', 'available')->count() }} available
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-xl-3">
             <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(155, 89, 182, 0.1); color: #9B59B6;">
+                <div class="stat-icon" style="background: rgba(139, 92, 246, 0.12); color: var(--secondary);">
                     <i class="bi bi-bag"></i>
                 </div>
                 <div class="stat-value">{{ $stats['today_orders'] }}</div>
                 <div class="stat-label">Orders Today</div>
-                <div class="stat-trend">
-                    <span class="text-danger">{{ $stats['pending_orders'] }} pending</span>
+                <div class="stat-trend text-danger">
+                    {{ $stats['pending_orders'] }} pending
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-xl-3">
             <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(255, 107, 53, 0.1); color: var(--primary-orange);">
+                <div class="stat-icon" style="background: rgba(16, 185, 129, 0.12); color: var(--success);">
                     <i class="bi bi-currency-dollar"></i>
                 </div>
                 <div class="stat-value">${{ number_format($stats['today_revenue'], 0) }}</div>
                 <div class="stat-label">Revenue Today</div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-xl-3">
             <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(26, 188, 156, 0.1); color: #1ABC9C;">
+                <div class="stat-icon" style="background: var(--info-light); color: var(--info);">
                     <i class="bi bi-graph-up"></i>
                 </div>
                 <div class="stat-value">${{ number_format($stats['total_revenue'], 0) }}</div>
                 <div class="stat-label">Total Revenue</div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-xl-3">
             <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(52, 73, 94, 0.1); color: #34495E;">
+                <div class="stat-icon" style="background: var(--bg-tertiary); color: var(--text-tertiary);">
                     <i class="bi bi-boxes"></i>
                 </div>
                 <div class="stat-value">{{ $stats['total_orders'] }}</div>
                 <div class="stat-label">Total Orders</div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-xl-3">
             <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(231, 76, 60, 0.1); color: #E74C3C;">
+                <div class="stat-icon" style="background: var(--danger-light); color: var(--danger);">
                     <i class="bi bi-cash-coin"></i>
                 </div>
                 <div class="stat-value">${{ number_format($stats['avg_order_value'], 2) }}</div>
@@ -241,7 +394,10 @@
     <div class="row g-4">
         <div class="col-lg-7">
             <div class="chart-container">
-                <h6><i class="bi bi-graph-up me-2 text-orange"></i>Orders & Revenue — Last 7 Days</h6>
+                <h6 class="chart-title">
+                    <i class="bi bi-graph-up text-primary"></i>
+                    Orders & Revenue — Last 7 Days
+                </h6>
                 <div class="chart-box">
                     <canvas id="trendChart"></canvas>
                 </div>
@@ -249,7 +405,10 @@
         </div>
         <div class="col-lg-5">
             <div class="chart-container">
-                <h6><i class="bi bi-pie-chart me-2 text-orange"></i>Order Status Distribution</h6>
+                <h6 class="chart-title">
+                    <i class="bi bi-pie-chart text-primary"></i>
+                    Order Status Distribution
+                </h6>
                 <div class="chart-box">
                     <canvas id="statusChart"></canvas>
                 </div>
@@ -262,44 +421,51 @@
     <div class="row g-4">
         <div class="col-lg-8" id="mapCard">
             <div class="control-tower-card">
-                <div class="table-header-admin d-flex justify-content-between align-items-center">
-                    <h4><i class="bi bi-map me-2 text-orange"></i>Live Rider Map</h4>
-                    <button class="btn btn-sm btn-outline-dark" onclick="toggleMapFullscreen()">
-                        <i class="bi bi-arrows-fullscreen me-1"></i> <span id="expandText">Expand</span>
+                <div class="card-header-custom">
+                    <h4 class="card-header-title">
+                        <i class="bi bi-map text-primary me-2"></i>Live Rider Map
+                    </h4>
+                    <button class="btn btn-sm btn-secondary" onclick="toggleMapFullscreen()">
+                        <i class="bi bi-arrows-fullscreen me-1"></i>
+                        <span id="expandText">Expand</span>
                     </button>
                 </div>
-                <div id="riderMap" style="height:350px; background: #1a1a2e;"></div>
+                <div id="riderMap" style="height:350px; background: var(--bg-tertiary);"></div>
             </div>
         </div>
         <div class="col-lg-4" id="mapSidebar">
             <div class="control-tower-card mb-3">
-                <div class="table-header-admin">
-                    <h6 class="fw-bold mb-0"><i class="bi bi-gear me-2"></i>Quick Links</h6>
+                <div class="card-header-custom">
+                    <h6 class="card-header-title mb-0">
+                        <i class="bi bi-gear text-primary me-2"></i>Quick Links
+                    </h6>
                 </div>
                 <div class="p-3">
-                    <a href="{{ route('admin.partners.index') }}" class="btn btn-outline-custom w-100 mb-2">
-                        <i class="bi bi-people me-2"></i>Manage Partners
+                    <a href="{{ route('admin.partners.index') }}" class="quick-link-btn mb-2">
+                        <i class="bi bi-people"></i>
+                        Manage Partners
                     </a>
-                    <a href="{{ route('admin.packages.index') }}" class="btn btn-outline-custom w-100 mb-2">
-                        <i class="bi bi-box-seam me-2"></i>Subscription Plans
+                    <a href="{{ route('admin.packages.index') }}" class="quick-link-btn">
+                        <i class="bi bi-box-seam"></i>
+                        Subscription Plans
                     </a>
                 </div>
             </div>
             <div class="control-tower-card">
-                <div class="table-header-admin">
-                    <h6 class="fw-bold mb-0">Orders by Status</h6>
+                <div class="card-header-custom">
+                    <h6 class="card-header-title mb-0">Orders by Status</h6>
                 </div>
-                <div class="p-3">
+                <div class="p-4">
                     @forelse($orderStatusCounts as $status => $count)
-                    <div class="d-flex align-items-center justify-content-between py-2">
-                        <span>
+                    <div class="status-row">
+                        <span class="status-row-label">
                             <span class="status-dot {{ $status }}"></span>
                             {{ ucwords(str_replace('_', ' ', $status)) }}
                         </span>
-                        <span class="fw-bold">{{ $count }}</span>
+                        <span class="status-row-value">{{ $count }}</span>
                     </div>
                     @empty
-                    <div class="text-muted py-3 text-center">No active orders</div>
+                    <div class="text-muted text-center py-4">No active orders</div>
                     @endforelse
                 </div>
             </div>
@@ -309,9 +475,11 @@
 
 <div class="container-fluid-custom mb-4">
     <div class="table-card-admin">
-        <div class="table-header-admin d-flex justify-content-between align-items-center">
-            <h4><i class="bi bi-list-ul me-2 text-orange"></i>Active Orders</h4>
-            <span class="badge bg-orange">{{ $activeOrders->count() }} orders</span>
+        <div class="table-header-admin">
+            <h4 class="table-header-title">
+                <i class="bi bi-list-ul text-primary me-2"></i>Active Orders
+            </h4>
+            <span class="badge badge-primary">{{ $activeOrders->count() }} orders</span>
         </div>
         <div class="table-responsive">
             <table class="table mb-0">
@@ -330,24 +498,26 @@
                 <tbody>
                     @forelse($activeOrders as $order)
                     <tr>
-                        <td><strong>{{ $order->order_number }}</strong></td>
+                        <td><strong class="text-primary">{{ $order->order_number }}</strong></td>
                         <td>{{ $order->customer_name }}</td>
                         <td>{{ $order->restaurant->name }}</td>
                         <td>
                             @if($order->rider)
-                            <span class="text-success"><i class="bi bi-motorcycle"></i> {{ $order->rider->user->name }}</span>
+                            <span class="text-success"><i class="bi bi-motorcycle me-1"></i>{{ $order->rider->user->name }}</span>
                             @else
                             <span class="text-muted">Unassigned</span>
                             @endif
                         </td>
                         <td>
-                            <span class="status-dot {{ $order->status }}"></span>
-                            {{ ucwords(str_replace('_', ' ', $order->status)) }}
+                            <span class="status-badge {{ $order->status }}">
+                                <span class="status-dot {{ $order->status }}"></span>
+                                {{ ucwords(str_replace('_', ' ', $order->status)) }}
+                            </span>
                         </td>
                         <td class="fw-bold">${{ number_format($order->total, 2) }}</td>
-                        <td>{{ $order->created_at->diffForHumans() }}</td>
+                        <td class="text-muted">{{ $order->created_at->diffForHumans() }}</td>
                         <td>
-                            <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-sm btn-outline-dark">
+                            <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-sm btn-outline-secondary me-1">
                                 <i class="bi bi-eye"></i>
                             </a>
                             @if(!$order->rider)
@@ -360,9 +530,9 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="8" class="text-center py-5 text-muted">
+                        <td colspan="8" class="text-center py-5">
                             <i class="bi bi-check-circle display-4 d-block mb-3 text-success"></i>
-                            No active orders
+                            <p class="text-muted mb-0">No active orders</p>
                         </td>
                     </tr>
                     @endforelse
@@ -374,9 +544,11 @@
 
 <div class="container-fluid-custom">
     <div class="table-card-admin">
-        <div class="table-header-admin d-flex justify-content-between align-items-center">
+        <div class="table-header-admin">
             <div>
-                <h4><i class="bi bi-shop me-2 text-orange"></i>Restaurants</h4>
+                <h4 class="table-header-title">
+                    <i class="bi bi-shop text-primary me-2"></i>Restaurants
+                </h4>
                 <small class="text-muted">{{ $restaurants->count() }} total
                     @if($pendingRestaurants->count() > 0)
                     · <span class="text-warning">{{ $pendingRestaurants->count() }} pending</span>
@@ -400,11 +572,11 @@
                 </thead>
                 <tbody>
                     @forelse($restaurants as $restaurant)
-                    <tr class="{{ $restaurant->status !== 'active' || !$restaurant->is_open ? 'table-warning' : '' }}">
+                    <tr class="{{ $restaurant->status !== 'active' || !$restaurant->is_open ? '' : '' }}">
                         <td>
                             <strong>{{ $restaurant->name }}</strong>
                             @if(!$restaurant->is_open)
-                            <span class="badge bg-warning text-dark ms-1">Closed</span>
+                            <span class="badge badge-warning ms-1">Closed</span>
                             @endif
                         </td>
                         <td>
@@ -413,23 +585,23 @@
                         </td>
                         <td>
                             @if($restaurant->status === 'active' && $restaurant->is_open)
-                            <span class="badge bg-success">Active</span>
+                            <span class="badge badge-success">Active</span>
                             @elseif($restaurant->status !== 'active')
-                            <span class="badge bg-danger">{{ ucfirst($restaurant->status) }}</span>
+                            <span class="badge badge-danger">{{ ucfirst($restaurant->status) }}</span>
                             @else
-                            <span class="badge bg-warning text-dark">Pending</span>
+                            <span class="badge badge-warning">Pending</span>
                             @endif
                         </td>
                         <td class="fw-bold">{{ $restaurant->total_orders }}</td>
                         <td class="fw-bold text-success">${{ number_format($restaurant->total_revenue, 2) }}</td>
                         <td>
                             @if($restaurant->rating > 0)
-                            <span class="text-warning"><i class="bi bi-star-fill"></i> {{ number_format($restaurant->rating, 1) }}</span>
+                            <span class="rating-star"><i class="bi bi-star-fill"></i> {{ number_format($restaurant->rating, 1) }}</span>
                             @else
                             <span class="text-muted">—</span>
                             @endif
                         </td>
-                        <td>{{ $restaurant->created_at->format('M d, Y') }}</td>
+                        <td class="text-muted">{{ $restaurant->created_at->format('M d, Y') }}</td>
                         <td>
                             @if($restaurant->status !== 'active' || !$restaurant->is_open)
                             <form method="POST" action="{{ route('admin.restaurants.approve', $restaurant->id) }}" class="d-inline">
@@ -441,7 +613,7 @@
                             @else
                             <form method="POST" action="{{ route('admin.restaurants.toggle', $restaurant->id) }}" class="d-inline">
                                 @csrf @method('PUT')
-                                <button type="submit" class="btn btn-sm btn-outline-warning">
+                                <button type="submit" class="btn btn-sm btn-outline-secondary">
                                     <i class="bi bi-power"></i> {{ $restaurant->is_open ? 'Close' : 'Open' }}
                                 </button>
                             </form>
@@ -450,9 +622,9 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="8" class="text-center py-5 text-muted">
-                            <i class="bi bi-shop display-4 d-block mb-3"></i>
-                            No restaurants yet
+                        <td colspan="8" class="text-center py-5">
+                            <i class="bi bi-shop display-4 d-block mb-3 text-muted" style="opacity: 0.5;"></i>
+                            <p class="text-muted mb-0">No restaurants yet</p>
                         </td>
                     </tr>
                     @endforelse
@@ -483,11 +655,11 @@ function initRiderMap() {
     var bounds = [];
     riders.forEach(function(rider) {
         if (rider.location && rider.location.latitude && rider.location.longitude) {
-            var color = rider.status === 'available' ? '#2ECC71' : '#FF6B35';
+            var color = rider.status === 'available' ? '#10B981' : '#3B82F6';
             var marker = L.marker([rider.location.latitude, rider.location.longitude], {
                 icon: L.divIcon({
-                    html: '<div style="background:' + color + ';width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;"><i class="bi bi-motorcycle"></i></div>',
-                    className: '', iconSize: [24, 24], iconAnchor: [12, 12]
+                    html: '<div style="background:' + color + ';width:28px;height:28px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;color:white;font-size:14px;"><i class="bi bi-motorcycle"></i></div>',
+                    className: '', iconSize: [28, 28], iconAnchor: [14, 14]
                 })
             }).addTo(map);
             marker.bindPopup('<strong>' + rider.name + '</strong><br>Status: ' + rider.status);
@@ -510,11 +682,11 @@ function refreshRiderMarkers() {
                     if (riderMarkers[rider.id]) {
                         riderMarkers[rider.id].setLatLng([rider.latitude, rider.longitude]);
                     } else {
-                        var color = rider.status === 'available' ? '#2ECC71' : '#FF6B35';
+                        var color = rider.status === 'available' ? '#10B981' : '#3B82F6';
                         var marker = L.marker([rider.latitude, rider.longitude], {
                             icon: L.divIcon({
-                                html: '<div style="background:' + color + ';width:24px;height:24px;border-radius:50%;border:3px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;"><i class="bi bi-motorcycle"></i></div>',
-                                className: '', iconSize: [24, 24], iconAnchor: [12, 12]
+                                html: '<div style="background:' + color + ';width:28px;height:28px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;color:white;font-size:14px;"><i class="bi bi-motorcycle"></i></div>',
+                                className: '', iconSize: [28, 28], iconAnchor: [14, 14]
                             })
                         }).addTo(map);
                         marker.bindPopup('<strong>' + rider.name + '</strong><br>Status: ' + rider.status);
@@ -578,21 +750,22 @@ function initCharts() {
                 datasets: [{
                     label: 'Orders',
                     data: counts,
-                    backgroundColor: 'rgba(255, 107, 53, 0.7)',
-                    borderColor: '#FF6B35',
-                    borderWidth: 1,
-                    borderRadius: 4,
+                    backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                    borderColor: '#3B82F6',
+                    borderWidth: 0,
+                    borderRadius: 6,
                     order: 2
                 }, {
                     label: 'Revenue ($)',
                     data: revenues,
                     type: 'line',
-                    borderColor: '#2ECC71',
-                    backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                    borderColor: '#10B981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
                     fill: true,
                     tension: 0.4,
-                    pointBackgroundColor: '#2ECC71',
+                    pointBackgroundColor: '#10B981',
                     pointRadius: 4,
+                    pointHoverRadius: 6,
                     borderWidth: 2,
                     order: 1
                 }]
@@ -600,8 +773,27 @@ function initCharts() {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { position: 'top' } },
-                scales: { y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, x: { grid: { display: false } } }
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: { family: "'DM Sans', sans-serif", size: 12 }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(0,0,0,0.05)' },
+                        ticks: { font: { family: "'DM Sans', sans-serif", size: 11 } }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: "'DM Sans', sans-serif", size: 11 } }
+                    }
+                }
             }
         });
     }
@@ -610,16 +802,26 @@ function initCharts() {
         var statusData = @json($orderStatusAll);
         var labels = Object.keys(statusData).map(function(s) { return s.replace(/_/g, ' '); });
         var values = Object.values(statusData);
-        var colors = { placed: '#3498DB', confirmed: '#F39C12', preparing: '#9B59B6', on_the_way: '#2ECC71', delivered: '#1ABC9C', cancelled: '#E74C3C' };
-        var bgColors = labels.map(function(l) { return colors[l.replace(/ /g, '_')] || '#95A5A6'; });
+        var colors = { placed: '#06B6D4', confirmed: '#F59E0B', preparing: '#8B5CF6', on_the_way: '#10B981', delivered: '#10B981', cancelled: '#EF4444' };
+        var bgColors = labels.map(function(l) { return colors[l.replace(/ /g, '_')] || '#64748B'; });
         new Chart(statusCtx, {
             type: 'doughnut',
-            data: { labels: labels, datasets: [{ data: values, backgroundColor: bgColors, borderWidth: 2 }] },
+            data: { labels: labels, datasets: [{ data: values, backgroundColor: bgColors, borderWidth: 2, borderColor: 'white' }] },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { position: 'right', labels: { padding: 12, boxWidth: 12 } } },
-                cutout: '60%'
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            padding: 12,
+                            boxWidth: 12,
+                            font: { family: "'DM Sans', sans-serif", size: 12 },
+                            usePointStyle: true
+                        }
+                    }
+                },
+                cutout: '65%'
             }
         });
     }

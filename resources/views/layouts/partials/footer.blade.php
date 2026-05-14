@@ -1,14 +1,14 @@
-<footer class="bg-charcoal text-white pt-5 pb-4">
+<footer class="footer-section">
     <div class="container-fluid px-4">
-        <div class="row g-4">
+        <div class="row g-5">
             <div class="col-lg-4 col-md-6">
                 <div class="d-flex align-items-center mb-4">
-                    <div class="brand-icon me-2">
+                    <div class="footer-brand-icon">
                         <i class="bi bi-lightning-charge-fill"></i>
                     </div>
-                    <span class="brand-text">Quickbite!</span>
+                    <span class="footer-brand-text">Quickbite!</span>
                 </div>
-                <p class="text-light opacity-75 mb-4">
+                <p class="footer-description mb-4">
                     Your favorite restaurants, delivered fast. Lightning-fast food delivery at your fingertips.
                 </p>
                 <div class="d-flex gap-3">
@@ -19,8 +19,8 @@
             </div>
 
             <div class="col-lg-2 col-md-6">
-                <h6 class="text-uppercase fw-bold mb-4">Quick Links</h6>
-                <ul class="list-unstyled footer-links">
+                <h6 class="footer-title">Quick Links</h6>
+                <ul class="footer-links">
                     <li><a href="{{ route('restaurants.index') }}">Browse Restaurants</a></li>
                     <li><a href="{{ route('partner.pricing') }}">Partner with Us</a></li>
                     @auth
@@ -31,28 +31,28 @@
             </div>
 
             <div class="col-lg-2 col-md-6">
-                <h6 class="text-uppercase fw-bold mb-4">Support</h6>
-                <ul class="list-unstyled footer-links">
-                    <li><a href="mailto:support@foodie.local">Contact Us</a></li>
+                <h6 class="footer-title">Support</h6>
+                <ul class="footer-links">
+                    <li><a href="mailto:support@quickbite.local">Contact Us</a></li>
                     <li><a href="#">Help Center</a></li>
                     <li><a href="#">FAQ</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-2 col-md-6">
-                <h6 class="text-uppercase fw-bold mb-4">Legal</h6>
-                <ul class="list-unstyled footer-links">
+                <h6 class="footer-title">Legal</h6>
+                <ul class="footer-links">
                     <li><a href="#">Terms of Service</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
 
-        <hr class="my-4 border-secondary">
+        <hr class="footer-divider">
 
         <div class="row align-items-center">
             <div class="col-md-6 text-center text-md-start">
-                <p class="mb-0 text-light opacity-75">&copy; {{ date('Y') }} Quickbite!. All rights reserved.</p>
+                <p class="footer-copyright mb-0">&copy; {{ date('Y') }} Quickbite!. All rights reserved.</p>
             </div>
             <div class="col-md-6 text-center text-md-end">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png" alt="Visa" height="24" class="me-2" loading="lazy">
@@ -63,50 +63,117 @@
 </footer>
 
 <style>
-    .brand-icon {
-        width: 42px;
-        height: 42px;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        border-radius: var(--radius-md);
+    .footer-section {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-default);
+        padding: 64px 0 32px;
+    }
+
+    [data-theme="dark"] .footer-section {
+        background: var(--bg-tertiary);
+    }
+
+    .footer-brand-icon {
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        border-radius: var(--radius-lg);
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
         font-size: 20px;
+        box-shadow: var(--shadow-md), 0 4px 12px rgba(59, 130, 246, 0.3);
     }
-    .brand-text {
-        font-family: 'Audiowide', 'Playfair Display', serif;
-        font-size: 24px;
-        font-weight: 400;
-        color: white;
+
+    .footer-brand-text {
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--text-primary);
     }
+
+    .footer-description {
+        color: var(--text-tertiary);
+        font-size: var(--text-sm);
+        line-height: 1.7;
+    }
+
+    .footer-title {
+        font-size: var(--text-sm);
+        font-weight: 700;
+        color: var(--text-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
     .footer-links li {
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
+
     .footer-links a {
-        color: rgba(255, 255, 255, 0.7);
-        transition: var(--transition-fast);
+        color: var(--text-tertiary);
+        font-size: var(--text-sm);
+        transition: all var(--transition-fast);
         text-decoration: none;
+        display: inline-block;
     }
+
     .footer-links a:hover {
-        color: var(--primary-orange);
-        padding-left: 5px;
+        color: var(--primary);
+        transform: translateX(4px);
     }
+
     .social-icon {
         width: 40px;
         height: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
+        background: var(--bg-tertiary);
+        border-radius: var(--radius-md);
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: var(--transition-normal);
+        transition: all var(--transition-base);
         text-decoration: none;
-        color: rgba(255,255,255,0.7);
+        color: var(--text-tertiary);
     }
+
     .social-icon:hover {
-        background: var(--primary-orange);
-        transform: translateY(-3px);
+        background: var(--primary);
         color: white;
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .footer-divider {
+        border: none;
+        border-top: 1px solid var(--border-subtle);
+        margin: 40px 0 24px;
+    }
+
+    .footer-copyright {
+        color: var(--text-muted);
+        font-size: var(--text-sm);
+    }
+
+    @media (max-width: 768px) {
+        .footer-section {
+            padding: 48px 0 24px;
+        }
+
+        .footer-copyright {
+            text-align: center !important;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a:hover {
+            transform: none;
+        }
     }
 </style>

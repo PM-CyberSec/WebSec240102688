@@ -106,10 +106,10 @@
         font-family: 'Playfair Display', serif;
         font-size: 28px;
         font-weight: 700;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
         margin-bottom: 8px;
         padding-bottom: 12px;
-        border-bottom: 3px solid var(--primary-orange);
+        border-bottom: 3px solid var(--primary);
         display: inline-block;
     }
 
@@ -156,7 +156,7 @@
     .menu-item-name {
         font-size: 18px;
         font-weight: 700;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
         margin-bottom: 8px;
     }
 
@@ -169,7 +169,7 @@
     .menu-item-price {
         font-size: 18px;
         font-weight: 700;
-        color: var(--primary-orange);
+        color: var(--primary);
     }
 
     .add-to-cart-btn {
@@ -275,7 +275,7 @@
     }
 
     .remove-btn {
-        color: var(--danger-red);
+        color: var(--danger);
         background: none;
         border: none;
         cursor: pointer;
@@ -765,7 +765,7 @@ function showToast(message) {
         bottom: 30px;
         right: 30px;
         background: white;
-        color: #1A1A2E;
+        color: var(--text-primary);
         padding: 16px 28px;
         border-radius: 16px;
         box-shadow: 0 8px 32px rgba(0,0,0,0.15);

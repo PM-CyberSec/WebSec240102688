@@ -97,7 +97,7 @@
         line-height: 1;
     }
     .image-preview .btn-remove:hover {
-        background: #c0392b;
+        background: var(--danger);
         transform: scale(1.1);
     }
 </style>

@@ -848,7 +848,7 @@ function showToast(message) {
     var toast = document.createElement('div');
     toast.className = 'toast-notification';
     toast.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>' + message;
-    toast.style.cssText = 'position:fixed;bottom:30px;right:30px;background:white;color:#1A1A2E;padding:16px 28px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:99999;font-weight:600;display:flex;align-items:center;gap:4px;border-left:4px solid #2ECC71;transform:translateY(20px);opacity:0;transition:all 0.3s ease;';
+    toast.style.cssText = 'position:fixed;bottom:30px;right:30px;background:white;color:var(--text-primary);padding:16px 28px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:99999;font-weight:600;display:flex;align-items:center;gap:4px;border-left:4px solid #2ECC71;transform:translateY(20px);opacity:0;transition:all 0.3s ease;';
     document.body.appendChild(toast);
     requestAnimationFrame(function () {
         toast.style.transform = 'translateY(0)';

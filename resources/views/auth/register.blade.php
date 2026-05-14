@@ -5,49 +5,76 @@
 <style>
     .auth-page {
         min-height: 100vh;
-        background: linear-gradient(135deg, var(--dark-charcoal), var(--dark-secondary));
+        background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
         padding: 40px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    [data-theme="dark"] .auth-page {
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    }
+
+    .auth-page::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+        animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
     }
 
     .auth-card {
-        background: white;
+        background: var(--bg-secondary);
         border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--border-default);
+        box-shadow: var(--shadow-xl);
         overflow: hidden;
+        position: relative;
+        z-index: 2;
         max-width: 800px;
         margin: 0 auto;
     }
 
     .auth-header {
-        background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
         padding: 40px;
         text-align: center;
     }
 
     .auth-logo {
-        width: 80px;
-        height: 80px;
+        width: 72px;
+        height: 72px;
         background: white;
         border-radius: var(--radius-lg);
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 20px;
-        font-size: 36px;
-        color: var(--primary-orange);
+        margin: 0 auto 16px;
+        font-size: 32px;
+        color: var(--primary);
+        box-shadow: var(--shadow-lg);
     }
 
     .auth-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 28px;
+        font-family: var(--font-display);
+        font-size: 26px;
         font-weight: 700;
         color: white;
         margin: 0;
     }
 
     .auth-subtitle {
-        color: rgba(255,255,255,0.8);
-        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.85);
+        margin-top: 6px;
+        font-size: var(--text-sm);
     }
 
     .auth-body {
@@ -55,26 +82,33 @@
     }
 
     .section-title-form {
-        font-size: 18px;
+        font-size: var(--text-lg);
         font-weight: 700;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
         margin-bottom: 24px;
         padding-bottom: 12px;
-        border-bottom: 2px solid var(--primary-orange);
+        border-bottom: 2px solid var(--primary);
+        display: block;
     }
 
     .form-input-custom {
         width: 100%;
         padding: 14px 18px;
-        border: 2px solid var(--light-gray);
+        border: 2px solid var(--border-default);
         border-radius: var(--radius-md);
-        font-size: 15px;
-        transition: var(--transition-fast);
+        font-size: var(--text-sm);
+        transition: all var(--transition-fast);
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+    }
+
+    .form-input-custom::placeholder {
+        color: var(--text-muted);
     }
 
     .form-input-custom:focus {
-        border-color: var(--primary-orange);
-        box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
         outline: none;
     }
 
@@ -96,53 +130,54 @@
 
     .role-card {
         padding: 24px;
-        border: 2px solid var(--light-gray);
+        border: 2px solid var(--border-default);
         border-radius: var(--radius-lg);
         text-align: center;
         cursor: pointer;
-        transition: var(--transition-normal);
+        transition: all var(--transition-base);
+        background: var(--bg-secondary);
     }
 
     .role-card:hover {
-        border-color: var(--primary-orange);
+        border-color: var(--primary);
     }
 
     .role-option input:checked + .role-card {
-        border-color: var(--primary-orange);
-        background: rgba(255, 107, 53, 0.05);
+        border-color: var(--primary);
+        background: rgba(59, 130, 246, 0.05);
     }
 
     .role-icon {
         width: 56px;
         height: 56px;
-        background: var(--off-white);
+        background: var(--bg-tertiary);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 0 auto 12px;
         font-size: 24px;
-        color: var(--muted-gray);
+        color: var(--text-tertiary);
     }
 
     .role-option input:checked + .role-card .role-icon {
-        background: var(--primary-orange);
+        background: var(--primary);
         color: white;
     }
 
     .role-name {
         font-weight: 700;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
     }
 
     .role-desc {
-        font-size: 13px;
-        color: var(--muted-gray);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
         margin-top: 4px;
     }
 
     .special-fields {
-        background: var(--off-white);
+        background: var(--bg-tertiary);
         border-radius: var(--radius-lg);
         padding: 24px;
         margin-bottom: 24px;
@@ -150,7 +185,7 @@
 
     .special-fields-title {
         font-weight: 700;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
         margin-bottom: 20px;
         display: flex;
         align-items: center;
@@ -161,31 +196,52 @@
         height: 300px;
         border-radius: var(--radius-md);
         margin-top: 12px;
+        z-index: 1;
     }
 
     .auth-btn {
         width: 100%;
-        padding: 18px;
-        font-size: 16px;
-        font-weight: 700;
+        padding: 16px;
+        font-size: var(--text-base);
+        font-weight: 600;
         border-radius: var(--radius-md);
         margin-top: 20px;
     }
 
     .auth-footer {
         text-align: center;
-        color: var(--muted-gray);
+        color: var(--text-secondary);
         margin-top: 24px;
+        font-size: var(--text-sm);
     }
 
     .auth-footer a {
-        color: var(--primary-orange);
+        color: var(--primary);
         font-weight: 600;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: var(--text-sm);
+        margin-bottom: 6px;
     }
 
     @media (max-width: 576px) {
         .role-selector {
             grid-template-columns: 1fr;
+        }
+
+        .auth-card {
+            max-width: 100%;
+        }
+
+        .auth-header {
+            padding: 32px 24px;
+        }
+
+        .auth-body {
+            padding: 24px;
         }
     }
 </style>
@@ -196,18 +252,18 @@
     <div class="auth-card">
         <div class="auth-header">
             <div class="auth-logo">
-                <i class="bi bi-shop"></i>
+                <i class="bi bi-lightning-charge-fill"></i>
             </div>
             <h2 class="auth-title">Create Account</h2>
-            <p class="auth-subtitle">Join Foodie today</p>
+            <p class="auth-subtitle">Join Quickbite today</p>
         </div>
 
         <div class="auth-body">
             @if($errors->any())
-            <div class="alert alert-danger border-0 rounded-3 mb-4">
+            <div class="alert alert-danger mb-4" style="background: var(--danger-light); border: 1px solid var(--danger); border-radius: var(--radius-md); padding: 16px;">
                 <ul class="mb-0 ps-3">
                     @foreach($errors->all() as $err)
-                    <li>{{ $err }}</li>
+                    <li style="color: var(--danger);">{{ $err }}</li>
                     @endforeach
                 </ul>
             </div>
@@ -216,8 +272,7 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
-                <!-- Role Selection -->
-                <label class="section-title-form d-block">I want to join as</label>
+                <label class="section-title-form">I want to join as</label>
                 <div class="role-selector">
                     <label class="role-option">
                         <input type="radio" name="type" value="customer" checked>
@@ -245,58 +300,56 @@
                     </label>
                 </div>
 
-                <!-- Basic Info -->
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-semibold">Full Name</label>
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label">Full Name</label>
                         <input type="text" name="name" class="form-input-custom" required placeholder="Your full name">
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-semibold">Email Address</label>
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label">Email Address</label>
                         <input type="email" name="email" class="form-input-custom" required placeholder="your@email.com">
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-semibold">Password</label>
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label">Password</label>
                         <input type="password" name="password" class="form-input-custom" required minlength="8" placeholder="Min 8 characters">
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-semibold">Confirm Password</label>
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label">Confirm Password</label>
                         <input type="password" name="password_confirmation" class="form-input-custom" required placeholder="Confirm password">
                     </div>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label fw-semibold">Phone Number</label>
+                    <label class="form-label">Phone Number</label>
                     <input type="text" name="phone" class="form-input-custom" placeholder="Your phone number">
                 </div>
 
-                <!-- Restaurant Fields -->
                 <div id="restaurantFields" style="display: none;">
                     <div class="special-fields">
                         <div class="special-fields-title">
-                            <i class="bi bi-shop text-orange"></i> Restaurant Details
+                            <i class="bi bi-shop text-primary"></i> Restaurant Details
                         </div>
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">Restaurant Name</label>
+                            <label class="form-label">Restaurant Name</label>
                             <input type="text" name="restaurant_name" class="form-input-custom" id="restaurantName" placeholder="Your restaurant name">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">Search Location</label>
+                            <label class="form-label">Search Location</label>
                             <div class="input-group">
-                                <input type="text" class="form-input-custom" id="addressSearch" placeholder="Search address...">
-                                <button type="button" class="btn btn-primary-custom" onclick="searchLocation()">
+                                <input type="text" class="form-input-custom" id="addressSearch" placeholder="Search address..." style="border-radius: var(--radius-md) 0 0 var(--radius-md);">
+                                <button type="button" class="btn btn-primary" onclick="searchLocation()" style="border-radius: 0 var(--radius-md) var(--radius-md) 0;">
                                     <i class="bi bi-search"></i>
                                 </button>
                             </div>
                             <div id="searchResults" class="mt-2" style="display: none;"></div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">Set Location on Map</label>
+                            <label class="form-label">Set Location on Map</label>
                             <div id="map"></div>
-                            <small class="text-muted">Click on the map to set your restaurant location</small>
+                            <small class="text-muted d-block mt-2">Click on the map to set your restaurant location</small>
                             <div id="locationStatus" class="mt-2"></div>
                         </div>
                         <div class="row">
@@ -310,7 +363,6 @@
                     </div>
                 </div>
 
-                <!-- Rider Fields -->
                 <div id="riderFields" style="display: none;">
                     <div class="special-fields">
                         <div class="special-fields-title">
@@ -318,7 +370,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label class="form-label fw-semibold">Vehicle Type</label>
+                                <label class="form-label">Vehicle Type</label>
                                 <select name="vehicle_type" class="form-input-custom">
                                     <option value="car">Car</option>
                                     <option value="motorcycle">Motorcycle</option>
@@ -326,11 +378,11 @@
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-label fw-semibold">Vehicle Plate</label>
+                                <label class="form-label">Vehicle Plate</label>
                                 <input type="text" name="vehicle_plate" class="form-input-custom" placeholder="ABC-1234">
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-label fw-semibold">License Number</label>
+                                <label class="form-label">License Number</label>
                                 <input type="text" name="license_number" class="form-input-custom" placeholder="License number">
                             </div>
                         </div>
@@ -399,7 +451,7 @@ function initMap() {
         marker.setLatLng([userLat, userLng]);
         document.getElementById('latitude').value = userLat.toFixed(6);
         document.getElementById('longitude').value = userLng.toFixed(6);
-        document.getElementById('locationStatus').innerHTML = '<div class="alert alert-success py-2 px-3"><i class="bi bi-check-circle me-1"></i> Location set!</div>';
+        document.getElementById('locationStatus').innerHTML = '<div class="alert py-2 px-3 mb-0" style="background: var(--success-light); color: var(--success); border-radius: var(--radius-md);"><i class="bi bi-check-circle me-1"></i> Location set!</div>';
     });
 
     marker.on('dragend', function(e) {
@@ -415,7 +467,7 @@ async function searchLocation() {
     if (!query) return;
 
     resultsDiv.style.display = 'block';
-    resultsDiv.innerHTML = '<div class="p-2" style="color:var(--text-muted);">Searching...</div>';
+    resultsDiv.innerHTML = '<div class="p-2" style="color: var(--text-muted);">Searching...</div>';
 
     try {
         const response = await fetch("{{ route('geocode.search') }}?q=" + encodeURIComponent(query));
@@ -427,6 +479,7 @@ async function searchLocation() {
                 const div = document.createElement('div');
                 div.className = 'p-2 border-bottom';
                 div.style.cursor = 'pointer';
+                div.style.color = 'var(--text-primary)';
                 div.innerHTML = '<strong>' + (item.address || item.name) + '</strong>';
                 div.onclick = function() {
                     userLat = parseFloat(item.latitude);
@@ -440,10 +493,10 @@ async function searchLocation() {
                 resultsDiv.appendChild(div);
             });
         } else {
-            resultsDiv.innerHTML = '<div class="p-2" style="color:var(--text-muted);">No results found</div>';
+            resultsDiv.innerHTML = '<div class="p-2" style="color: var(--text-muted);">No results found</div>';
         }
     } catch (e) {
-        resultsDiv.innerHTML = '<div class="p-2 text-danger">Search error</div>';
+        resultsDiv.innerHTML = '<div class="p-2" style="color: var(--danger);">Search error</div>';
     }
 }
 
@@ -461,7 +514,7 @@ document.querySelector('form')?.addEventListener('submit', function(e) {
             e.preventDefault()
             var status = document.getElementById('locationStatus')
             if (status) {
-                status.innerHTML = '<div class="alert alert-danger py-2 px-3 mt-2"><i class="bi bi-exclamation-circle me-1"></i>' + err + '</div>'
+                status.innerHTML = '<div class="alert py-2 px-3 mt-2" style="background: var(--danger-light); color: var(--danger); border-radius: var(--radius-md);"><i class="bi bi-exclamation-circle me-1"></i>' + err + '</div>'
                 status.scrollIntoView({ behavior: 'smooth', block: 'center' })
             }
         }

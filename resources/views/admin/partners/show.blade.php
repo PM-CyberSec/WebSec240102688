@@ -54,17 +54,17 @@
 
     .status-active {
         background: rgba(40, 167, 69, 0.1);
-        color: #28a745;
+        color: var(--success);
     }
 
     .status-pending {
         background: rgba(255, 193, 7, 0.1);
-        color: #ffc107;
+        color: var(--warning);
     }
 
     .status-suspended {
         background: rgba(220, 53, 69, 0.1);
-        color: #dc3545;
+        color: var(--danger);
     }
 
     .restaurant-status {
@@ -75,12 +75,12 @@
 
     .restaurant-active {
         background: rgba(40, 167, 69, 0.1);
-        color: #28a745;
+        color: var(--success);
     }
 
     .restaurant-pending {
         background: rgba(255, 193, 7, 0.1);
-        color: #ffc107;
+        color: var(--warning);
     }
 </style>
 @endpush

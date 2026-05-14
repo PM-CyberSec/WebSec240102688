@@ -156,13 +156,13 @@
     }
 
     .badge-open {
-        background: #D4EDDA;
-        color: #155724;
+        background: var(--success-light);
+        color: var(--success);
     }
 
     .badge-closed {
-        background: #F8D7DA;
-        color: #721C24;
+        background: var(--danger-light);
+        color: var(--danger);
     }
 
     .restaurant-info {

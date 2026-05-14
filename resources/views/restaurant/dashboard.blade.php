@@ -58,7 +58,7 @@
     .stat-value-lg {
         font-size: 36px;
         font-weight: 700;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
         line-height: 1;
     }
 
@@ -86,14 +86,14 @@
     .table-title-modern {
         font-size: 20px;
         font-weight: 700;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
     }
 
     .table thead th {
-        background: var(--off-white);
+        background: var(--bg-tertiary);
         padding: 16px 20px;
         font-weight: 600;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
         font-size: 13px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -115,7 +115,7 @@
         background: white;
         border-radius: var(--radius-lg);
         text-decoration: none;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
         font-weight: 600;
         transition: var(--transition-normal);
         box-shadow: var(--shadow-sm);
@@ -156,13 +156,13 @@
 
 @section('content')
 @if(session('status'))
-<div class="alert alert-success border-0 rounded-3 mb-4" style="background: rgba(46, 204, 113, 0.1);">
+<div class="alert alert-success border-0 rounded-3 mb-4" style="background: var(--success-light);">
     <i class="bi bi-check-circle me-2"></i>{{ session('status') }}
 </div>
 @endif
 
 @if(!$restaurant->is_open)
-<div class="alert alert-warning border-0 rounded-3 mb-4 d-flex align-items-center gap-2" style="background: rgba(243, 156, 18, 0.1);">
+<div class="alert alert-warning border-0 rounded-3 mb-4 d-flex align-items-center gap-2" style="background: var(--warning-light);">
     <i class="bi bi-shield-exclamation fs-4"></i>
     <div>
         <strong>Restaurant Not Visible to Customers</strong><br>
@@ -171,7 +171,7 @@
     </div>
 </div>
 @elseif($restaurant->status === 'active' && $restaurant->is_open)
-<div class="alert alert-success border-0 rounded-3 mb-4 d-flex align-items-center gap-2" style="background: rgba(46, 204, 113, 0.1);">
+<div class="alert alert-success border-0 rounded-3 mb-4 d-flex align-items-center gap-2" style="background: var(--success-light);">
     <i class="bi bi-check-circle-fill fs-4"></i>
     <div>
         <strong>Your Restaurant is Active</strong><br>
@@ -184,7 +184,7 @@
 <div class="row g-4 mb-4">
     <div class="col-md-3">
         <div class="stat-card-modern">
-            <div class="stat-icon-lg" style="background: rgba(255, 107, 53, 0.1); color: var(--primary-orange);">
+            <div class="stat-icon-lg" style="background: var(--primary); color: white;">
                 <i class="bi bi-bag"></i>
             </div>
             <div class="stat-value-lg">{{ $todayOrders }}</div>
@@ -193,7 +193,7 @@
     </div>
     <div class="col-md-3">
         <div class="stat-card-modern">
-            <div class="stat-icon-lg" style="background: rgba(46, 204, 113, 0.1); color: var(--success-green);">
+            <div class="stat-icon-lg" style="background: var(--success-light); color: var(--success);">
                 <i class="bi bi-currency-dollar"></i>
             </div>
             <div class="stat-value-lg">${{ number_format($todayRevenue, 2) }}</div>
@@ -202,7 +202,7 @@
     </div>
     <div class="col-md-3">
         <div class="stat-card-modern">
-            <div class="stat-icon-lg" style="background: rgba(243, 156, 18, 0.1); color: var(--warning-yellow);">
+            <div class="stat-icon-lg" style="background: var(--warning-light); color: var(--warning);">
                 <i class="bi bi-star-fill"></i>
             </div>
             <div class="stat-value-lg">{{ number_format($restaurant->rating, 1) }}</div>
@@ -211,7 +211,7 @@
     </div>
     <div class="col-md-3">
         <div class="stat-card-modern">
-            <div class="stat-icon-lg" style="background: rgba(52, 152, 219, 0.1); color: #3498DB;">
+            <div class="stat-icon-lg" style="background: var(--info-light); color: var(--info);">
                 <i class="bi bi-chat-square-text"></i>
             </div>
             <div class="stat-value-lg">{{ $restaurant->total_reviews }}</div>
@@ -397,7 +397,7 @@
                 if (newCount > oldCount) {
                     const diff = newCount - oldCount;
                     const toast = document.createElement('div');
-                    toast.style.cssText = 'position:fixed;bottom:30px;right:30px;background:white;color:#1A1A2E;padding:16px 28px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:99999;font-weight:600;border-left:4px solid #FF6B35;';
+                    toast.style.cssText = 'position:fixed;bottom:30px;right:30px;background:white;color:var(--text-primary);padding:16px 28px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);z-index:99999;font-weight:600;border-left:4px solid var(--primary-orange);';
                     toast.innerHTML = '<i class="bi bi-bell-fill me-2"></i>' + diff + ' new order' + (diff > 1 ? 's' : '') + '!';
                     document.body.appendChild(toast);
                     setTimeout(() => toast.remove(), 4000);

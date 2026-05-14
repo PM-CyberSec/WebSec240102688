@@ -22,12 +22,12 @@
         background: var(--off-white);
         font-weight: 600;
         padding: 16px;
-        border-bottom: 2px solid #e9ecef;
+        border-bottom: 2px solid var(--border-default);
     }
     .package-table td {
         padding: 16px;
         vertical-align: middle;
-        border-bottom: 1px solid #e9ecef;
+        border-bottom: 1px solid var(--border-subtle);
     }
 </style>
 @endpush

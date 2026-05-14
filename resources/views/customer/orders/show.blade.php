@@ -6,7 +6,7 @@
     .review-star {
         cursor: pointer;
         font-size: 32px;
-        color: #ddd;
+        color: var(--text-tertiary);
         transition: color 0.15s ease;
     }
     .star-rating {
@@ -20,13 +20,13 @@
     .star-rating label {
         cursor: pointer;
         font-size: 32px;
-        color: #ddd;
+        color: var(--text-tertiary);
         transition: color 0.15s ease;
     }
     .star-rating label:hover,
     .star-rating label:hover ~ label,
     .star-rating input:checked ~ label {
-        color: #FFD700;
+        color: var(--warning);
     }
     .rating-card {
         background: white;

@@ -39,17 +39,17 @@
     }
 
     .filter-pill:hover {
-        background: rgba(255, 107, 53, 0.1);
-        color: var(--primary-orange);
+        background: var(--primary);
+        color: white;
     }
 
     .filter-pill.active {
-        background: var(--primary-orange);
+        background: var(--primary);
         color: white;
     }
 
     .new-order-badge {
-        background: var(--danger-red);
+        background: var(--danger);
         color: white;
         padding: 2px 8px;
         border-radius: 50px;
@@ -65,7 +65,7 @@
     }
 
     .order-table-card .table th {
-        background: var(--off-white);
+        background: var(--bg-tertiary);
         padding: 16px 20px;
         font-weight: 600;
         font-size: 13px;
@@ -110,7 +110,7 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
             <div>
                 <h1 class="orders-page-title">Orders</h1>
-                <p class="text-white-50 mt-2">Manage incoming orders from customers</p>
+                <p class="text-white-75 mt-2" style="color: rgba(255,255,255,0.75) !important;">Manage incoming orders from customers</p>
             </div>
             <div class="d-flex gap-2">
                 <a href="{{ route('restaurant.dashboard') }}" class="btn btn-light">Dashboard</a>
@@ -253,7 +253,7 @@
             bottom: 30px;
             right: 30px;
             background: white;
-            color: #1A1A2E;
+            color: var(--text-primary);
             padding: 16px 28px;
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.15);
@@ -261,7 +261,7 @@
             font-weight: 600;
             display: flex;
             align-items: center;
-            border-left: 4px solid #FF6B35;
+            border-left: 4px solid var(--primary-orange);
             transform: translateY(20px);
             opacity: 0;
             transition: all 0.3s ease;

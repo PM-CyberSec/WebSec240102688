@@ -17,7 +17,7 @@
         right: 0;
         bottom: 0;
         background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80') center/cover;
-        opacity: 0.15;
+        opacity: 0.25;
     }
 
     .page-title {
@@ -59,7 +59,7 @@
     }
 
     .filter-section {
-        background: white;
+        background: var(--bg-secondary);
         border-radius: var(--radius-lg);
         padding: 20px 24px;
         box-shadow: var(--shadow-sm);
@@ -87,11 +87,11 @@
 
     .filter-select:focus, .filter-input:focus {
         border-color: var(--primary-orange);
-        box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
     }
 
     .restaurant-card-large {
-        background: white;
+        background: var(--bg-secondary);
         border-radius: var(--radius-lg);
         overflow: hidden;
         transition: var(--transition-normal);
@@ -123,13 +123,13 @@
     }
 
     .badge-open {
-        background: #D4EDDA;
-        color: #155724;
+        background: var(--success-light);
+        color: var(--success);
     }
 
     .badge-closed {
-        background: #F8D7DA;
-        color: #721C24;
+        background: var(--danger-light);
+        color: var(--danger);
     }
 
     .restaurant-content {
@@ -139,7 +139,7 @@
     .restaurant-title {
         font-size: 20px;
         font-weight: 700;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
         margin-bottom: 12px;
     }
 
@@ -165,11 +165,11 @@
         align-items: center;
         gap: 8px;
         font-size: 13px;
-        color: var(--muted-gray);
+        color: var(--text-tertiary);
     }
 
     .meta-item i {
-        color: var(--primary-orange);
+        color: var(--primary);
     }
 
     .empty-state {
@@ -194,11 +194,11 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        background: var(--off-white);
+        background: var(--bg-tertiary);
         padding: 6px 14px;
         border-radius: 50px;
         font-size: 13px;
-        color: var(--dark-charcoal);
+        color: var(--text-primary);
     }
 
     .active-filter-tag a {
@@ -247,7 +247,7 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="page-title">Restaurants</h1>
-                <p class="text-white-50 mt-2">Discover the best food delivery near you</p>
+                <p class="mt-2" style="color: rgba(255,255,255,0.75);">Discover the best food delivery near you</p>
             </div>
         </div>
         <div class="row">
