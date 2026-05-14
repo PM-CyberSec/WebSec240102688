@@ -18,7 +18,37 @@
 
 **Quickbite** is a full-stack food delivery platform built with Laravel 11, featuring real-time order tracking, AI-powered dispatch engine, Stripe Connect payments, and a modern responsive UI. The platform connects customers, restaurants, riders, and administrators in a seamless ecosystem.
 
-![Dashboard Screenshot Placeholder](https://via.placeholder.com/1200x600/1a1a2e/e94560?text=Quickbite+Dashboard)
+<img width="1920" height="925" alt="image" src="https://github.com/user-attachments/assets/e6f36b4c-884a-4318-80f8-dc8d8ad16c27" />
+
+---
+<img width="1920" height="926" alt="image" src="https://github.com/user-attachments/assets/ab2c5181-b24b-41a7-88f2-abc223915442" />
+
+---
+<img width="1920" height="928" alt="image" src="https://github.com/user-attachments/assets/d544c919-6f60-4696-8bc5-0776c908d86e" />
+
+---
+<img width="1920" height="928" alt="image" src="https://github.com/user-attachments/assets/8d9251a9-8d88-4be6-b1a8-1bad935d201f" />
+
+---
+<img width="1920" height="928" alt="image" src="https://github.com/user-attachments/assets/d0399b8f-2137-43bc-8cd1-356e9b87f9b3" />
+
+---
+<img width="1917" height="920" alt="image" src="https://github.com/user-attachments/assets/d846d4cc-bb94-4c4f-b4dc-2164a860b84f" />
+
+---
+<img width="1920" height="927" alt="image" src="https://github.com/user-attachments/assets/8664a2a0-9ebe-4512-a012-321cdc1bb00b" />
+
+---
+<img width="1920" height="928" alt="image" src="https://github.com/user-attachments/assets/48d2f0af-8dae-4d1b-b30b-a6d53f4496ad" />
+
+---
+<img width="1920" height="928" alt="image" src="https://github.com/user-attachments/assets/f3346aa5-acc9-4ca8-b140-3e6834d5246f" />
+
+---
+<img width="1920" height="924" alt="image" src="https://github.com/user-attachments/assets/82de7587-b63a-4007-8620-4db4e5b456e5" />
+
+---
+<img width="1920" height="928" alt="image" src="https://github.com/user-attachments/assets/dc849ea5-20e7-45af-9a49-a8c01b4f28c6" />
 
 ---
 
